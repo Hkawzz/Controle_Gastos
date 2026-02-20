@@ -5,5 +5,6 @@ app_name = 'financeiro'
 
 urlpatterns = [
     path('', views.visao_geral, name="inicio"),
-    path('entradas/', views.cadastrar_entradas, name='entradas')
+    path('entradas/', views.cadastrar_entradas, name='entradas'),
+    path('gastos/', views.cadastrar_gastos, name='gastos'),
 ]

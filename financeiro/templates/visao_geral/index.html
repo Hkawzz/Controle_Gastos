@@ -12,7 +12,25 @@
         <h1>Hello, World</h1>
     </header>
     <main>
+        <section>
+            {% for gasto in gastos %}
+                <p>{{ gasto.nome }}</p>
+                <p>{{ gasto.registro }}</p>
+                <p>{{ gasto.tipo }}</p>
+                <p>{{ gasto.categoria }}</p>
+                <p>{{ gasto.valor }}</p>
+            {% endfor %}
+        </section>
+        <section>
+            {% for entrada in entradas %}
+                <p>{{ entrada.data }}</p>
+                <p>{{ entrada.origem }}</p>
+                <p>{{ entrada.valor }}</p>
+            {% endfor %}
+        </section>
+        <br>
         <a href="{% url 'financeiro:entradas' %}">Cadastrar Entradas</a>
+        <a href="{% url 'financeiro:gastos' %}">Cadastrar Gastos</a>
     </main>
     <footer>
         <h1>GITHUB</h1>

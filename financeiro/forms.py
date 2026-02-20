@@ -13,3 +13,6 @@ class GastosForm(forms.ModelForm):
     class Meta:
         model = Gastos
         fields = ['nome', 'registro', 'tipo', 'categoria', 'valor']
+        widgets = {
+            'registro': forms.DateTimeInput(attrs={'type': 'datetime-local'})
+        }
