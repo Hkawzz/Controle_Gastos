@@ -8,7 +8,7 @@ class Entradas(models.Model):
     def __str__(self):
         return f"{self.origem} - {self.valor}"
 
-class Gasto(models.Model):
+class Gastos(models.Model):
     tipo_escolha = [
         ('dinheiro', 'Dinheiro'),
         ('pix', 'Pix'),
