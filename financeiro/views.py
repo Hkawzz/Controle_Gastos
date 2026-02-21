@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Gastos, Entradas
-from .forms import GastosForm, EntradasForm
+from .models import Gastos, Entradas, Fixos, Cartao
+from .forms import GastosForm, EntradasForm, FixosForm, CartaoForm
 
 def visao_geral(request):
     gastos = Gastos.objects.all()
@@ -71,3 +71,16 @@ def excluir_gastos(request, id):
     gasto.delete()
 
     return redirect('financeiro:inicio')
+
+def cadastrar_fixos(request):
+    if request.method == 'POST':
+        form = FixosForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            return redirect('financeiro:inicio')
+        
+    else:
+        form = FixosForm()
+
+    return render(request, "fixos/index.html", {'form': form})
