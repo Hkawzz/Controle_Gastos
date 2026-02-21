@@ -5,19 +5,28 @@
     <link rel="stylesheet" href="{% static 'gastos/style.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entradas</title>
+    <title>Gastos</title>
 </head>
 <body>
     <header>
-        <h1>Cadastro de Gastos</h1>
+        <h1>Gastos</h1>
     </header>
     <main>
-        <form method="post">
-            {% csrf_token %}
-            {{ form }}
-            <button type="submit">Salvar</button>
-        </form>
-        <a href="{% url 'financeiro:inicio' %}">Inicio</a>
+        <div class="od">
+            <form method="post" class="formulario">
+                {% csrf_token %}
+                <div class="info_formulario">
+                    {{ form.as_p }}
+                </div>
+                <button type="submit" class="salvar">Salvar</button>
+            </form>
+        </div>
+        <div class="botoes">
+            <a href="{% url 'financeiro:inicio' %}" class="botao">Inicio</a>
+        </div>
     </main>
+    <footer>
+        <a href="https://github.com/Hkawzz/" class="github" target="_blank">GitHub</a>
+    </footer>
 </body>
 </html>
