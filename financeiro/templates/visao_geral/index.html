@@ -146,7 +146,7 @@
                                 <td>{{ caixinha.meta }}</td>
                                 <td>{{ caixinha.guardado }}</td>
                                 <td><a href="{% url 'financeiro:editar_caixinha' caixinha.id %}" class="botao">Editar</a></td>
-                                <td><a href="" class="botao">Excluir</a></td>
+                                <td><a href="{% url 'financeiro:excluir_caixinha' caixinha.id %}" class="botao">Excluir</a></td>
                             </tr>
                         {% endfor %}
                     </tbody>

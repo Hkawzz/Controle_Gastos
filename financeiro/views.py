@@ -172,3 +172,9 @@ def editar_caixinha(request, id):
         form = CaixinhasForm(instance=form)
 
     return render(request, "caixinhas/index.html", {'form': form})
+
+def excluir_caixinha(request, id):
+    form = get_object_or_404(Caixinhas, id=id)
+    form.delete()
+
+    return redirect('financeiro:inicio')
