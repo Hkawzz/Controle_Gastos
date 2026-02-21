@@ -2,38 +2,75 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <link rel="stylesheet" href="{% static 'financeiro/style.css' %}">
+    <link rel="stylesheet" href="{% static 'visao_geral/style.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gastos</title>
 </head>
 <body>
     <header>
-        <h1>Hello, World</h1>
+        <h1>Fevereiro</h1>
     </header>
     <main>
-        <section>
-            {% for gasto in gastos %}
-                <p>{{ gasto.nome }}</p>
-                <p>{{ gasto.registro }}</p>
-                <p>{{ gasto.tipo }}</p>
-                <p>{{ gasto.categoria }}</p>
-                <p>{{ gasto.valor }}</p>
-            {% endfor %}
-        </section>
-        <section>
-            {% for entrada in entradas %}
-                <p>{{ entrada.data }}</p>
-                <p>{{ entrada.origem }}</p>
-                <p>{{ entrada.valor }}</p>
-            {% endfor %}
-        </section>
-        <br>
-        <a href="{% url 'financeiro:entradas' %}">Cadastrar Entradas</a>
-        <a href="{% url 'financeiro:gastos' %}">Cadastrar Gastos</a>
+        <div class="container">
+            <section class="gastos">
+                <table border="1" class="tabela_gastos">
+                    <thead>
+                        <th>Nome</th>
+                        <th>Registro</th>
+                        <th>Tipo</th>
+                        <th>Categoria</th>
+                        <th>Valor</th>
+                        <th>Editar</th>
+                        <th>Remover</th>
+                    </thead>
+                    <tbody>
+                        {% for gasto in gastos %}
+                            <tr>
+                                <td>{{ gasto.nome }}</td>
+                                <td>{{ gasto.registro }}</td>
+                                <td>{{ gasto.tipo }}</td>
+                                <td>{{ gasto.categoria }}</td>
+                                <td>{{ gasto.valor }}</td>
+                                <td><a href="" class="botao">Editar</a></td>
+                                <td><a href="" class="botao">Excluir</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="botoes_tabelas">
+                    <a href="{% url 'financeiro:entradas' %}" class="botao">Cadastrar Entradas</a>
+                </div>
+            </section>
+            <section class="entradas">
+                <table border="1" class="tabela_entradas">
+                    <thead>
+                        <th>Data</th>
+                        <th>Origem</th>
+                        <th>Valor</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
+                    </thead>
+                    <tbody>
+                        {% for entrada in entradas %}
+                            <tr>
+                                <td>{{ entrada.data }}</td>
+                                <td>{{ entrada.origem }}</td>
+                                <td>{{ entrada.valor }}</td>
+                                <td><a href="" class="botao">Editar</a></td>
+                                <td><a href="" class="botao">Excluir</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="botoes_tabelas">
+                    <a href="{% url 'financeiro:entradas' %}" class="botao">Cadastrar Entradas</a>
+                </div>
+            </section>
+        </div>
     </main>
     <footer>
-        <h1>GITHUB</h1>
+        <a href="https://github.com/Hkawzz/" class="github">GitHub</a>
     </footer>
 </body>
 </html>
