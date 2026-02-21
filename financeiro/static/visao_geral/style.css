@@ -17,6 +17,7 @@ header  h1 {
     font-family: "Arimo", sans-serif;
     text-align: center;
     margin: 1rem;
+    font-size: 50px;
 }
 
 .container {

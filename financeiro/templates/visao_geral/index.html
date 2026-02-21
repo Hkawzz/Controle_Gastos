@@ -32,14 +32,14 @@
                                 <td>{{ gasto.tipo }}</td>
                                 <td>{{ gasto.categoria }}</td>
                                 <td>{{ gasto.valor }}</td>
-                                <td><a href="" class="botao">Editar</a></td>
-                                <td><a href="" class="botao">Excluir</a></td>
+                                <td><a href="{% url 'financeiro:editar_gastos' gasto.id %}" class="botao">Editar</a></td>
+                                <td><a href="{% url 'financeiro:excluir_gastos' gasto.id %}" class="botao">Excluir</a></td>
                             </tr>
                         {% endfor %}
                     </tbody>
                 </table>
                 <div class="botoes_tabelas">
-                    <a href="{% url 'financeiro:entradas' %}" class="botao">Cadastrar Entradas</a>
+                    <a href="{% url 'financeiro:cadastrar_gastos' %}" class="botao">Cadastrar Gastos</a>
                 </div>
             </section>
             <section class="entradas">
@@ -57,14 +57,14 @@
                                 <td>{{ entrada.data }}</td>
                                 <td>{{ entrada.origem }}</td>
                                 <td>{{ entrada.valor }}</td>
-                                <td><a href="" class="botao">Editar</a></td>
-                                <td><a href="" class="botao">Excluir</a></td>
+                                <td><a href="{% url 'financeiro:editar_entradas' entrada.id %}" class="botao">Editar</a></td>
+                                <td><a href="{% url 'financeiro:excluir_entradas' entrada.id %}" class="botao">Excluir</a></td>
                             </tr>
                         {% endfor %}
                     </tbody>
                 </table>
                 <div class="botoes_tabelas">
-                    <a href="{% url 'financeiro:entradas' %}" class="botao">Cadastrar Entradas</a>
+                    <a href="{% url 'financeiro:cadastrar_entradas' %}" class="botao">Cadastrar Entradas</a>
                 </div>
             </section>
         </div>
