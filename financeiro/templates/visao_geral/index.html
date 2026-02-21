@@ -167,19 +167,20 @@
                         <th>Remover</th>
                     </thead>
                     <tbody>
-
+                        {% for divida in dividas %}
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><a href="" class="botao">Editar</a></td>
-                                <td><a href="" class="botao">Excluir</a></td>
+                                <td>{{ divida.nome }}</td>
+                                <td>{{ divida.valor_parcela }}</td>
+                                <td>{{ divida.total_parcela }}</td>
+                                <td>{{ divida.data }}</td>
+                                <td><a href="{% url 'financeiro:editar_divida' divida.id %}" class="botao">Editar</a></td>
+                                <td><a href="{% url 'financeiro:excluir_divida' divida.id %}" class="botao">Excluir</a></td>
                             </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
                 <div class="botoes_tabelas">
-                    <a href="" class="botao">Cadastrar Dívidas</a>
+                    <a href="{% url 'financeiro:cadastrar_divida' %}" class="botao">Cadastrar Dívidas</a>
                 </div>
             </section>
         </div>

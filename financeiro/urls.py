@@ -20,4 +20,7 @@ urlpatterns = [
     path('cadastrar_caixinhas/', views.cadastrar_caixinhas, name='cadastrar_caixinha'),
     path('editar_caixinha/<int:id>', views.editar_caixinha, name='editar_caixinha'),
     path('excluir_caixinha/<int:id>', views.excluir_caixinha, name='excluir_caixinha'),
+    path('cadastrar_divida/', views.cadastrar_divida, name='cadastrar_divida'),
+    path('editar_id/<int:id>', views.editar_divida, name='editar_divida'),
+    path('excluir_divida/<int:id>', views.excluir_divida, name='excluir_divida'),
 ]

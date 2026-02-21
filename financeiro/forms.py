@@ -62,8 +62,8 @@ class DividasForm(forms.ModelForm):
         model = Dividas
         fields = ['nome', 'valor_parcela', 'total_parcela', 'data']
         widgets = {
-            'nome': forms.TextInput(attrs={'class': 'input_objetivo'}),
+            'nome': forms.TextInput(attrs={'class': 'input_nome'}),
             'valor_parcela': forms.NumberInput(attrs={'class': 'input_valor_parcela'}),
-            'total_parcela': forms.NumberInput(attrs={'class': 'total_parcela'}),
+            'total_parcela': forms.NumberInput(attrs={'class': 'input_total_parcela'}),
             'data': forms.DateInput(attrs={'class': 'input_data'})
         }

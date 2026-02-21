@@ -8,13 +8,15 @@ def visao_geral(request):
     fixos = Fixos.objects.all()
     cartao = Cartao.objects.all()
     caixinhas = Caixinhas.objects.all()
+    dividas = Dividas.objects.all()
 
     return render(request, "visao_geral/index.html", {
         'gastos': gastos,
         'entradas': entradas,
         'fixos': fixos,
         'cartao': cartao,
-        'caixinhas': caixinhas})
+        'caixinhas': caixinhas,
+        'dividas': dividas})
 
 def cadastrar_entradas(request):
     if request.method == 'POST':
@@ -175,6 +177,39 @@ def editar_caixinha(request, id):
 
 def excluir_caixinha(request, id):
     form = get_object_or_404(Caixinhas, id=id)
+    form.delete()
+
+    return redirect('financeiro:inicio')
+
+def cadastrar_divida(request):
+    if request.method == 'POST':
+        form = DividasForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            return redirect('financeiro:inicio')
+        
+    else:
+        form = DividasForm()
+
+    return render(request, "dividas/index.html", {'form': form})
+
+def editar_divida(request, id):
+    form = get_object_or_404(Dividas, id=id)
+    if request.method == 'POST':
+        form = DividasForm(request.POST, instance=form)
+        if form.is_valid():
+            form.save()
+
+            return redirect('financeiro:inicio')
+        
+    else:
+        form = DividasForm(instance=form)
+
+    return render(request, "dividas/index.html", {'form': form})
+
+def excluir_divida(request, id):
+    form = get_object_or_404(Dividas, id=id)
     form.delete()
 
     return redirect('financeiro:inicio')
