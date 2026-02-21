@@ -12,4 +12,5 @@ urlpatterns = [
     path('editar_gastos/<int:id>', views.editar_gastos, name='editar_gastos'),
     path('excluir_gastos/<int:id>', views.excluir_gastos, name='excluir_gastos'),
     path('cadastrar_fixos/', views.cadastrar_fixos, name='cadastrar_fixos'),
+    path('excluir_fixos/<int:id>', views.excluir_fixos, name='excluir_fixos'),
 ]

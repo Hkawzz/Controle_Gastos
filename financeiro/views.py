@@ -85,3 +85,9 @@ def cadastrar_fixos(request):
         form = FixosForm()
 
     return render(request, "fixos/index.html", {'form': form})
+
+def excluir_fixos(request, id):
+    fixo =get_object_or_404(Fixos, id=id)
+    fixo.delete()
+
+    return redirect('financeiro:inicio')

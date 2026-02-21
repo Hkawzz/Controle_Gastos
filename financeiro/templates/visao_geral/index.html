@@ -87,7 +87,7 @@
                                 <td>{{ fixo.categoria }}</td>
                                 <td>{{ fixo.valor }}</td>
                                 <td><a href="">Editar</a></td>
-                                <td><a href="">Excluir</a></td>
+                                <td><a href="{% url 'financeiro:excluir_fixos' fixo.id %}">Excluir</a></td>
                             </tr>
                         {% endfor %}
                     </tbody>
