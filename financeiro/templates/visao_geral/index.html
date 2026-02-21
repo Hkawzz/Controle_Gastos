@@ -97,7 +97,7 @@
                 </div>
             </section>
             <section class="cartao">
-                <table border="1">
+                <table border="1" class="tabela_cartao">
                     <thead>
                         <th>Nome</th>
                         <th>Data</th>
@@ -114,15 +114,15 @@
                                     <td>{{ conta.parcela }}</td>
                                     <td>{{ conta.categoria }}</td>
                                     <td>{{ conta.valor }}</td>
-                                    <td><a href="{% url 'financeiro:editar_cartao' conta.id %}">Editar</a></td>
-                                    <td><a href="{% url 'financeiro:excluir_cartao' conta.id %}">Excluir</a></td>
+                                    <td><a href="{% url 'financeiro:editar_cartao' conta.id %}" class="botao">Editar</a></td>
+                                    <td><a href="{% url 'financeiro:excluir_cartao' conta.id %}" class="botao">Excluir</a></td>
                                 </tr>
                             {% endfor %}
                         </tbody>
                     </thead>
                 </table>
                 <div class="botoes_tabelas">
-                    <a href="{% url 'financeiro:cadastrar_cartao' %}">Cadastrar Cartão</a>
+                    <a href="{% url 'financeiro:cadastrar_cartao' %}" class="botao">Cadastrar Cartão</a>
                 </div>
             </section>
         </div>
