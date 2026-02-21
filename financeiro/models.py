@@ -47,3 +47,21 @@ class Cartao(models.Model):
 
     def __str__(self):
         return f"A conta do cartão é {self.nome}"
+
+class Caixinhas(models.Model):
+    objetivo = models.CharField(max_length=10)
+    meta = models.DecimalField(max_digits=10, decimal_places=2)
+    guardado = models.DecimalField(max_digits=10, decimal_places=2)
+    falta = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return f"O objetivo é {self.objetivo}"
+    
+class Dividas(models.Model):
+    nome = models.CharField(max_length=100)
+    valor_parcela = models.DecimalField(max_digits=10, decimal_places=2)
+    total_parcela = models.DecimalField(max_digits=10, decimal_places=2)
+    data = models.DateField()
+
+    def __str__(self):
+        return f"A dívida é {self.nome}"
