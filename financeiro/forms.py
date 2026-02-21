@@ -6,7 +6,9 @@ class EntradasForm(forms.ModelForm):
         model = Entradas
         fields = ['data', 'origem', 'valor']
         widgets = {
-            'data': forms.DateInput(attrs={'type': 'date'})
+            'data': forms.DateInput(attrs={'type': 'date', 'class': 'input_tipo'}),
+            'origem': forms.TextInput(attrs={'class': 'input_origem'}),
+            'valor': forms.NumberInput(attrs={'class': 'input_valor'}),
         }
 
 class GastosForm(forms.ModelForm):
