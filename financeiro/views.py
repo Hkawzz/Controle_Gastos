@@ -105,3 +105,16 @@ def excluir_fixos(request, id):
     fixo.delete()
 
     return redirect('financeiro:inicio')
+
+def cadastrar_cartao(request):
+    if request.method == 'POST':
+        form = CartaoForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            return redirect('financeiro:inicio')
+        
+    else:
+        form = CartaoForm()
+
+    return render(request, "cartao/index.html", {'form': form})
