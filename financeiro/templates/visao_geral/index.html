@@ -107,15 +107,17 @@
                         <th>Editar</th>
                         <th>Excluir</th>
                         <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                            {% for conta in cartao %}
+                                <tr>
+                                    <td>{{ conta.nome }}</td>
+                                    <td>{{ conta.data }}</td>
+                                    <td>{{ conta.parcela }}</td>
+                                    <td>{{ conta.categoria }}</td>
+                                    <td>{{ conta.valor }}</td>
+                                    <td><a href="{% url 'financeiro:editar_cartao' conta.id %}">Editar</a></td>
+                                    <td><a href="">Excluir</a></td>
+                                </tr>
+                            {% endfor %}
                         </tbody>
                     </thead>
                 </table>

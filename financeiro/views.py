@@ -6,8 +6,13 @@ def visao_geral(request):
     gastos = Gastos.objects.all()
     entradas = Entradas.objects.all()
     fixos = Fixos.objects.all()
+    cartao = Cartao.objects.all()
 
-    return render(request, "visao_geral/index.html", {'gastos': gastos, 'entradas': entradas, 'fixos': fixos})
+    return render(request, "visao_geral/index.html", {
+        'gastos': gastos,
+        'entradas': entradas,
+        'fixos': fixos,
+        'cartao': cartao})
 
 def cadastrar_entradas(request):
     if request.method == 'POST':
@@ -116,5 +121,19 @@ def cadastrar_cartao(request):
         
     else:
         form = CartaoForm()
+
+    return render(request, "cartao/index.html", {'form': form})
+
+def editar_cartao(request, id):
+    form = get_object_or_404(Cartao, id=id)
+    if request.method == 'POST':
+        form = CartaoForm(request.POST, instance=form)
+        if form.is_valid():
+            form.save()
+
+            return redirect('financeiro:inicio')
+        
+    else:
+        form = CartaoForm(instance=form)
 
     return render(request, "cartao/index.html", {'form': form})
