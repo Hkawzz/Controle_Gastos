@@ -5,8 +5,9 @@ from .forms import GastosForm, EntradasForm, FixosForm, CartaoForm
 def visao_geral(request):
     gastos = Gastos.objects.all()
     entradas = Entradas.objects.all()
+    fixos = Fixos.objects.all()
 
-    return render(request, "visao_geral/index.html", {'gastos': gastos, 'entradas': entradas})
+    return render(request, "visao_geral/index.html", {'gastos': gastos, 'entradas': entradas, 'fixos': fixos})
 
 def cadastrar_entradas(request):
     if request.method == 'POST':

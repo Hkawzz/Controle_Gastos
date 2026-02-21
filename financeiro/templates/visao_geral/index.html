@@ -67,6 +67,33 @@
                     <a href="{% url 'financeiro:cadastrar_entradas' %}" class="botao">Cadastrar Entradas</a>
                 </div>
             </section>
+            <section>
+                <table border="1">
+                    <thead>
+                        <th>Nome</th>
+                        <th>Data</th>
+                        <th>Tipo</th>
+                        <th>Categoria</th>
+                        <th>Valor</th>
+                        <th>Editar</th>
+                        <Th>Excluir</Th>
+                    </thead>
+                    <tbody>
+                        {% for fixo in fixos %}
+                            <tr>
+                                <td>{{ fixo.nome }}</td>
+                                <td>{{ fixo.data }}</td>
+                                <td>{{ fixo.tipo }}</td>
+                                <td>{{ fixo.categoria }}</td>
+                                <td>{{ fixo.valor }}</td>
+                                <td><a href="">Editar</a></td>
+                                <td><a href="">Excluir</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{% url 'financeiro:cadastrar_fixos' %}">Cadastrar Fixos</a>
+            </section>
         </div>
     </main>
     <footer>
