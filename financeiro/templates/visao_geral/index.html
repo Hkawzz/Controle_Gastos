@@ -67,8 +67,8 @@
                     <a href="{% url 'financeiro:cadastrar_entradas' %}" class="botao">Cadastrar Entradas</a>
                 </div>
             </section>
-            <section>
-                <table border="1">
+            <section class="fixos">
+                <table border="1" class="tabela_fixos">
                     <thead>
                         <th>Nome</th>
                         <th>Data</th>
@@ -86,13 +86,15 @@
                                 <td>{{ fixo.tipo }}</td>
                                 <td>{{ fixo.categoria }}</td>
                                 <td>{{ fixo.valor }}</td>
-                                <td><a href="{% url 'financeiro:editar_fixos' fixo.id %}">Editar</a></td>
-                                <td><a href="{% url 'financeiro:excluir_fixos' fixo.id %}">Excluir</a></td>
+                                <td><a href="{% url 'financeiro:editar_fixos' fixo.id %}" class="botao">Editar</a></td>
+                                <td><a href="{% url 'financeiro:excluir_fixos' fixo.id %}" class="botao">Excluir</a></td>
                             </tr>
                         {% endfor %}
                     </tbody>
                 </table>
-                <a href="{% url 'financeiro:cadastrar_fixos' %}">Cadastrar Fixos</a>
+                <div class="botoes_tabelas">
+                    <a href="{% url 'financeiro:cadastrar_fixos' %}" class="botao">Cadastrar Fixos</a>
+                </div>
             </section>
         </div>
     </main>

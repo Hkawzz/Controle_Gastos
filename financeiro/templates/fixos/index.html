@@ -15,9 +15,7 @@
         <div class="fix">
             <form method="post" class="formulario">
                 {% csrf_token %}
-                <div class="info_formulario">
-                    {{ form.as_p }}
-                </div>
+                {{ form.as_p }}
                 <button type="submit" class="salvar">Salvar</button>
             </form>
         </div>

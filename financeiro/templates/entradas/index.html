@@ -15,7 +15,9 @@
         <div class="ent">
             <form method="post" class="formulario">
                 {% csrf_token %}
-                {{ form.as_p }}
+                <div class="info-formulario">
+                    {{ form.as_p }}
+                </div>
                 <button type="submit" class="salvar">Salvar</button>
             </form>
         </div>

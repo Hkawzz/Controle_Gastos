@@ -27,13 +27,9 @@ header  h1 {
     padding-top: 5rem;
 }
 
-.gastos {
-    background-color: #4d93d9;
-    border-radius: 1rem;
-    padding: 1rem;
-}
-
-.entradas {
+.gastos,
+.entradas,
+.fixos {
     background-color: #4d93d9;
     border-radius: 1rem;
     padding: 1rem;
@@ -54,13 +50,13 @@ header  h1 {
     padding: 0.3rem;
 }
 
-.tabela_gastos {
+.tabela_gastos,
+.tabela_entradas,
+.tabela_fixos {
     border-collapse: collapse;
 }
 
-.tabela_entradas {
-    border-collapse: collapse;
-}
+
 
 th, td {
     padding: 0.5rem;
