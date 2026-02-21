@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Gastos, Entradas, Fixos, Cartao
-from .forms import GastosForm, EntradasForm, FixosForm, CartaoForm
+from .models import Gastos, Entradas, Fixos, Cartao, Caixinhas, Dividas
+from .forms import GastosForm, EntradasForm, FixosForm, CartaoForm, CaixinhasForm, DividasForm
 
 def visao_geral(request):
     gastos = Gastos.objects.all()
@@ -143,3 +143,16 @@ def excluir_cartao(request, id):
     form.delete()
 
     return redirect('financeiro:inicio')
+
+def cadastrar_caixinhas(request):
+    if request.method == 'POST':
+        form = CaixinhasForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            return redirect('financeiro:inicio')
+        
+    else:
+        form = CaixinhasForm()
+
+    return render(request, "caixinhas/index.html", {'form': form})
