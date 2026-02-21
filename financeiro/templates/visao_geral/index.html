@@ -115,7 +115,7 @@
                                     <td>{{ conta.categoria }}</td>
                                     <td>{{ conta.valor }}</td>
                                     <td><a href="{% url 'financeiro:editar_cartao' conta.id %}">Editar</a></td>
-                                    <td><a href="">Excluir</a></td>
+                                    <td><a href="{% url 'financeiro:excluir_cartao' conta.id %}">Excluir</a></td>
                                 </tr>
                             {% endfor %}
                         </tbody>

@@ -137,3 +137,9 @@ def editar_cartao(request, id):
         form = CartaoForm(instance=form)
 
     return render(request, "cartao/index.html", {'form': form})
+
+def excluir_cartao(request, id):
+    form = get_object_or_404(Cartao, id=id)
+    form.delete()
+
+    return redirect('financeiro:inicio')
