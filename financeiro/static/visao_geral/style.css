@@ -23,15 +23,24 @@ header  h1 {
 
 .container {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: flex-start;
-    justify-content: space-around;
     padding-top: 5rem;
+    gap: 2rem;
+}
+
+.titulo_tabela {
+    text-align: center;
+    padding: 0.3rem;
+    font-family: "Arimo", sans-serif;
 }
 
 .gastos,
 .entradas,
 .fixos,
 .cartao {
+    flex: 0 0 45%;
     background-color: #4d93d9;
     border-radius: 1rem;
     padding: 1rem;
@@ -57,6 +66,7 @@ header  h1 {
 .tabela_entradas,
 .tabela_fixos,
 .tabela_cartao {
+    margin: 0 auto;
     border-collapse: collapse;
 }
 

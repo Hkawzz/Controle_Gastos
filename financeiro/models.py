@@ -31,7 +31,7 @@ class Fixos(models.Model):
 
     nome = models.CharField(max_length=100)
     data = models.DateField()
-    tipo = models.CharField(choices=tipo_escolha, default='pix')
+    tipo = models.CharField(choices=tipo_escolha, default='conta')
     categoria = models.CharField(max_length=100)
     valor = models.DecimalField(max_digits=10, decimal_places=2)
 

@@ -14,6 +14,7 @@
     <main>
         <div class="container">
             <section class="gastos">
+                <h2 class="titulo_tabela">Gastos do Mês</h1>
                 <table border="1" class="tabela_gastos">
                     <thead>
                         <th>Nome</th>
@@ -43,6 +44,7 @@
                 </div>
             </section>
             <section class="entradas">
+                <h2 class="titulo_tabela">Entradas</h1>
                 <table border="1" class="tabela_entradas">
                     <thead>
                         <th>Data</th>
@@ -68,6 +70,7 @@
                 </div>
             </section>
             <section class="fixos">
+                <h2 class="titulo_tabela">Fixos</h1>
                 <table border="1" class="tabela_fixos">
                     <thead>
                         <th>Nome</th>
@@ -97,6 +100,7 @@
                 </div>
             </section>
             <section class="cartao">
+                <h2 class="titulo_tabela">Cartão de Crédito</h1>
                 <table border="1" class="tabela_cartao">
                     <thead>
                         <th>Nome</th>
@@ -106,6 +110,7 @@
                         <th>Valor</th>
                         <th>Editar</th>
                         <th>Excluir</th>
+                    </thead>
                         <tbody>
                             {% for conta in cartao %}
                                 <tr>
@@ -119,7 +124,6 @@
                                 </tr>
                             {% endfor %}
                         </tbody>
-                    </thead>
                 </table>
                 <div class="botoes_tabelas">
                     <a href="{% url 'financeiro:cadastrar_cartao' %}" class="botao">Cadastrar Cartão</a>
