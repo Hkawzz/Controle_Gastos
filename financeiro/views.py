@@ -7,12 +7,14 @@ def visao_geral(request):
     entradas = Entradas.objects.all()
     fixos = Fixos.objects.all()
     cartao = Cartao.objects.all()
+    caixinhas = Caixinhas.objects.all()
 
     return render(request, "visao_geral/index.html", {
         'gastos': gastos,
         'entradas': entradas,
         'fixos': fixos,
-        'cartao': cartao})
+        'cartao': cartao,
+        'caixinhas': caixinhas})
 
 def cadastrar_entradas(request):
     if request.method == 'POST':
@@ -154,5 +156,19 @@ def cadastrar_caixinhas(request):
         
     else:
         form = CaixinhasForm()
+
+    return render(request, "caixinhas/index.html", {'form': form})
+
+def editar_caixinha(request, id):
+    form = get_object_or_404(Caixinhas, id=id)
+    if request.method == 'POST':
+        form = CaixinhasForm(request.POST, instance=form)
+        if form.is_valid():
+            form.save()
+
+            return redirect('financeiro:inicio')
+        
+    else:
+        form = CaixinhasForm(instance=form)
 
     return render(request, "caixinhas/index.html", {'form': form})

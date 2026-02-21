@@ -18,4 +18,5 @@ urlpatterns = [
     path('editar_cartao/<int:id>', views.editar_cartao, name='editar_cartao'),
     path('excluir_cartao/<int:id>', views.excluir_cartao, name='excluir_cartao'),
     path('cadastrar_caixinhas/', views.cadastrar_caixinhas, name='cadastrar_caixinha'),
+    path('editar_caixinha/<int:id>', views.editar_caixinha, name='editar_caixinha'),
 ]
