@@ -39,7 +39,9 @@ header  h1 {
 .gastos,
 .entradas,
 .fixos,
-.cartao {
+.cartao,
+.caixinhas,
+.dividas {
     flex: 0 0 45%;
     background-color: #4d93d9;
     border-radius: 1rem;
@@ -65,7 +67,9 @@ header  h1 {
 .tabela_gastos,
 .tabela_entradas,
 .tabela_fixos,
-.tabela_cartao {
+.tabela_cartao,
+.tabela_caixinhas,
+.tabela_dividas {
     margin: 0 auto;
     border-collapse: collapse;
 }

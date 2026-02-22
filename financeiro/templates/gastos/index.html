@@ -1,8 +1,6 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <link rel="stylesheet" href="{% static 'gastos/style.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gastos</title>
@@ -12,18 +10,36 @@
         <h1>Gastos</h1>
     </header>
     <main>
-        <div class="od">
-            <form method="post" class="formulario">
-                {% csrf_token %}
-                <div class="info_formulario">
-                    {{ form.as_p }}
-                </div>
-                <button type="submit" class="salvar">Salvar</button>
-            </form>
-        </div>
-        <div class="botoes">
-            <a href="{% url 'financeiro:inicio' %}" class="botao">Inicio</a>
-        </div>
+        <section class="gastos">
+            <h2 class="titulo_tabela">Gastos do Mês</h1>
+            <table border="1" class="tabela_gastos">
+                <thead>
+                    <th>Nome</th>
+                    <th>Registro</th>
+                    <th>Tipo</th>
+                    <th>Categoria</th>
+                    <th>Valor</th>
+                    <th>Editar</th>
+                    <th>Remover</th>
+                </thead>
+                <tbody>
+                    {% for gasto in gastos %}
+                        <tr>
+                            <td>{{ gasto.nome }}</td>
+                            <td>{{ gasto.registro }}</td>
+                            <td>{{ gasto.tipo }}</td>
+                            <td>{{ gasto.categoria }}</td>
+                            <td>{{ gasto.valor }}</td>
+                            <td><a href="{% url 'financeiro:editar_gastos' gasto.id %}" class="botao">Editar</a></td>
+                            <td><a href="{% url 'financeiro:excluir_gastos' gasto.id %}" class="botao">Excluir</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="botoes_tabelas">
+                    <a href="{% url 'financeiro:cadastrar_gastos' %}" class="botao">Cadastrar Gastos</a>
+            </div>
+        </section>
     </main>
     <footer>
         <a href="https://github.com/Hkawzz/" class="github" target="_blank">GitHub</a>

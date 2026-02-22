@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="{% static 'caixinhas/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixinha</title>
+</head>
+<body>
+    <header>
+        <h1>Caixinha</h1>
+    </header>
+    <main>
+        <div class="caix">
+            <form method="post" class="formulario">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="salvar">Salvar</button>
+            </form>
+        </div>
+        <div class="botoes">
+            <a href="{% url 'financeiro:inicio' %}" class="botao">Inicio</a>
+        </div>
+    </main>
+    <footer>
+        <a href="https://github.com/Hkawzz/" class="github" target="_blank">GitHub</a>
+    </footer>
+</body>
+</html>

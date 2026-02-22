@@ -4,7 +4,6 @@ from .forms import GastosForm, EntradasForm, FixosForm, CartaoForm, CaixinhasFor
 
 def visao_geral(request):
     gastos = Gastos.objects.all()
-    entradas = Entradas.objects.all()
     fixos = Fixos.objects.all()
     cartao = Cartao.objects.all()
     caixinhas = Caixinhas.objects.all()
@@ -18,17 +17,22 @@ def visao_geral(request):
         'caixinhas': caixinhas,
         'dividas': dividas})
 
+def entradas(request):
+    entradas = Entradas.objects.all()
+
+    return render(request, "entradas/index.html", {'entradas': entradas})
+
 def cadastrar_entradas(request):
     if request.method == 'POST':
         form = EntradasForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('financeiro:inicio')
+            return redirect('financeiro:entradas')
         
     else:
         form = EntradasForm()
     
-    return render(request, "entradas/index.html", {'form': form})
+    return render(request, "entradas/form.html", {'form': form})
 
 def editar_entradas(request, id):
     entrada = get_object_or_404(Entradas, id=id)
@@ -37,18 +41,18 @@ def editar_entradas(request, id):
         if form.is_valid():
             form.save()
 
-            return redirect('financeiro:inicio')
+            return redirect('financeiro:entradas')
 
     else:
         form = EntradasForm(instance=entrada)
 
-    return render(request, "entradas/index.html", {'form': form})
+    return render(request, "entradas/form.html", {'form': form})
 
 def excluir_entradas(request, id):
     entradas = get_object_or_404(Entradas, id=id)
     entradas.delete()
 
-    return redirect('financeiro:inicio')
+    return redirect('financeiro:entradas')
 
 def cadastrar_gastos(request):
     if request.method == 'POST':
@@ -60,7 +64,7 @@ def cadastrar_gastos(request):
     else:
         form = GastosForm()
     
-    return render(request, "gastos/index.html", {'form': form})
+    return render(request, "gastos/form.html", {'form': form})
 
 def editar_gastos(request, id):
     gasto = get_object_or_404(Gastos, id=id)
@@ -74,7 +78,7 @@ def editar_gastos(request, id):
     else:
         form = GastosForm(instance=gasto)
 
-    return render(request, "gastos/index.html", {'form': form})
+    return render(request, "gastos/form.html", {'form': form})
 
 def excluir_gastos(request, id):
     gasto = get_object_or_404(Gastos, id=id)
@@ -93,7 +97,7 @@ def cadastrar_fixos(request):
     else:
         form = FixosForm()
 
-    return render(request, "fixos/index.html", {'form': form})
+    return render(request, "fixos/form.html", {'form': form})
 
 def editar_fixos(request, id):
     fixo = get_object_or_404(Fixos, id=id)
@@ -107,7 +111,7 @@ def editar_fixos(request, id):
     else:
         form = FixosForm(instance=fixo)
 
-    return render(request, "fixos/index.html", {'form': form})
+    return render(request, "fixos/form.html", {'form': form})
 
 def excluir_fixos(request, id):
     fixo =get_object_or_404(Fixos, id=id)
@@ -126,7 +130,7 @@ def cadastrar_cartao(request):
     else:
         form = CartaoForm()
 
-    return render(request, "cartao/index.html", {'form': form})
+    return render(request, "cartao/form.html", {'form': form})
 
 def editar_cartao(request, id):
     form = get_object_or_404(Cartao, id=id)
@@ -140,7 +144,7 @@ def editar_cartao(request, id):
     else:
         form = CartaoForm(instance=form)
 
-    return render(request, "cartao/index.html", {'form': form})
+    return render(request, "cartao/form.html", {'form': form})
 
 def excluir_cartao(request, id):
     form = get_object_or_404(Cartao, id=id)
@@ -159,7 +163,7 @@ def cadastrar_caixinhas(request):
     else:
         form = CaixinhasForm()
 
-    return render(request, "caixinhas/index.html", {'form': form})
+    return render(request, "caixinhas/form.html", {'form': form})
 
 def editar_caixinha(request, id):
     form = get_object_or_404(Caixinhas, id=id)
@@ -173,7 +177,7 @@ def editar_caixinha(request, id):
     else:
         form = CaixinhasForm(instance=form)
 
-    return render(request, "caixinhas/index.html", {'form': form})
+    return render(request, "caixinhas/form.html", {'form': form})
 
 def excluir_caixinha(request, id):
     form = get_object_or_404(Caixinhas, id=id)
@@ -192,7 +196,7 @@ def cadastrar_divida(request):
     else:
         form = DividasForm()
 
-    return render(request, "dividas/index.html", {'form': form})
+    return render(request, "dividas/form.html", {'form': form})
 
 def editar_divida(request, id):
     form = get_object_or_404(Dividas, id=id)
@@ -206,7 +210,7 @@ def editar_divida(request, id):
     else:
         form = DividasForm(instance=form)
 
-    return render(request, "dividas/index.html", {'form': form})
+    return render(request, "dividas/form.html", {'form': form})
 
 def excluir_divida(request, id):
     form = get_object_or_404(Dividas, id=id)
