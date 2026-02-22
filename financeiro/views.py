@@ -1,16 +1,14 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Gastos, Entradas, Fixos, Cartao, Caixinhas, Dividas
-from .forms import GastosForm, EntradasForm, FixosForm, CartaoForm, CaixinhasForm, DividasForm
+from .models import Entradas, Fixos, Cartao, Caixinhas, Dividas
+from .forms import EntradasForm, FixosForm, CartaoForm, CaixinhasForm, DividasForm
 
 def visao_geral(request):
-    gastos = Gastos.objects.all()
     fixos = Fixos.objects.all()
     cartao = Cartao.objects.all()
     caixinhas = Caixinhas.objects.all()
     dividas = Dividas.objects.all()
 
     return render(request, "visao_geral/index.html", {
-        'gastos': gastos,
         'entradas': entradas,
         'fixos': fixos,
         'cartao': cartao,
@@ -53,43 +51,6 @@ def excluir_entradas(request, id):
     entradas.delete()
 
     return redirect('financeiro:entradas')
-
-def gastos(request):
-    gastos = Gastos.objects.all()
-
-    return render(request, "gastos/index.html", {'gastos': gastos})
-
-def cadastrar_gasto(request):
-    if request.method == 'POST':
-        form = GastosForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('financeiro:gastos')
-        
-    else:
-        form = GastosForm()
-    
-    return render(request, "gastos/form.html", {'form': form})
-
-def editar_gasto(request, id):
-    gasto = get_object_or_404(Gastos, id=id)
-    if request.method == 'POST':
-        form = GastosForm(request.POST, instance=gasto)
-        if form.is_valid():
-            form.save()
-
-            return redirect('financeiro:gastos')
-
-    else:
-        form = GastosForm(instance=gasto)
-
-    return render(request, "gastos/form.html", {'form': form})
-
-def excluir_gasto(request, id):
-    gasto = get_object_or_404(Gastos, id=id)
-    gasto.delete()
-
-    return redirect('financeiro:gastos')
 
 def fixos(request):
     fixos = Fixos.objects.all()

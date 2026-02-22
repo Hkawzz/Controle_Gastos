@@ -33,8 +33,8 @@
                                     <td>{{ gasto.tipo }}</td>
                                     <td>{{ gasto.categoria }}</td>
                                     <td>{{ gasto.valor }}</td>
-                                    <td><a href="{% url 'financeiro:editar_gasto' gasto.id %}" class="botao">Editar</a></td>
-                                    <td><a href="{% url 'financeiro:excluir_gasto' gasto.id %}" class="botao">Excluir</a></td>
+                                    <td><a href="{% url 'gastos:editar_gasto' gasto.id %}" class="botao">Editar</a></td>
+                                    <td><a href="{% url 'gastos:excluir_gasto' gasto.id %}" class="botao">Excluir</a></td>
                                 </tr>
                             {% endfor %}
                         </tbody>
@@ -42,7 +42,7 @@
                 </div>
             </section>
             <div class="botoes_tabelas">
-                <a href="{% url 'financeiro:cadastrar_gasto' %}" class="botao">Cadastrar Entrada</a>
+                <a href="{% url 'gastos:cadastrar_gasto' %}" class="botao">Cadastrar Entrada</a>
             </div>
             <div class="botoes">
                 <a href="{% url 'financeiro:inicio' %}" class="botao">Inicio</a>
