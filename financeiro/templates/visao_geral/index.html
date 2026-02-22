@@ -17,60 +17,7 @@
             <a href="{% url 'financeiro:entradas' %}">Entradas</a>
             <a href="{% url 'financeiro:fixos' %}">Fixos</a>
             <a href="{% url 'financeiro:cartao' %}">Cartão</a>
-            <section class="caixinhas">
-                <h2 class="titulo_tabela">Caixinhas</h1>
-                <table border="1" class="tabela_caixinhas">
-                    <thead>
-                        <th>Objetivo</th>
-                        <th>Meta</th>
-                        <th>Guardado</th>
-                        <th>Editar</th>
-                        <th>Remover</th>
-                    </thead>
-                    <tbody>
-                        {% for caixinha in caixinhas %}
-                            <tr>
-                                <td>{{ caixinha.objetivo }}</td>
-                                <td>{{ caixinha.meta }}</td>
-                                <td>{{ caixinha.guardado }}</td>
-                                <td><a href="{% url 'financeiro:editar_caixinha' caixinha.id %}" class="botao">Editar</a></td>
-                                <td><a href="{% url 'financeiro:excluir_caixinha' caixinha.id %}" class="botao">Excluir</a></td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-                <div class="botoes_tabelas">
-                    <a href="{% url 'financeiro:cadastrar_caixinha' %}" class="botao">Cadastrar Caixinhas</a>
-                </div>
-            </section>
-            <section class="dividas">
-                <h2 class="titulo_tabela">Total de Dívidas</h1>
-                <table border="1" class="tabela_dividas">
-                    <thead>
-                        <th>Nome</th>
-                        <th>Valor p/ Parcela</th>
-                        <th>Total de Parcelas</th>
-                        <th>Data de Pagamento</th>
-                        <th>Editar</th>
-                        <th>Remover</th>
-                    </thead>
-                    <tbody>
-                        {% for divida in dividas %}
-                            <tr>
-                                <td>{{ divida.nome }}</td>
-                                <td>{{ divida.valor_parcela }}</td>
-                                <td>{{ divida.total_parcela }}</td>
-                                <td>{{ divida.data }}</td>
-                                <td><a href="{% url 'financeiro:editar_divida' divida.id %}" class="botao">Editar</a></td>
-                                <td><a href="{% url 'financeiro:excluir_divida' divida.id %}" class="botao">Excluir</a></td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-                <div class="botoes_tabelas">
-                    <a href="{% url 'financeiro:cadastrar_divida' %}" class="botao">Cadastrar Dívidas</a>
-                </div>
-            </section>
+            <a href="{% url 'financeiro:caixinhas' %}">Caixinhas</a>
         </div>
     </main>
     <footer>

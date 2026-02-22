@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="{% static 'caixinhas/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caixinhas</title>
+</head>
+<body>
+    <header>
+        <h1>Caixinhas</h1>
+    </header>
+    <main>
+        <div class="info">
+            <section class="container">
+                <div class="caixinhas">
+                    <table border="1" class="tabela_caixinhas">
+                        <thead>
+                            <th>Objetivo</th>
+                            <th>Meta</th>
+                            <th>Guardado</th>
+                            <th>Editar</th>
+                            <th>Remover</th>
+                        </thead>
+                        <tbody>
+                            {% for caixinha in caixinhas %}
+                                <tr>
+                                    <td>{{ caixinha.objetivo }}</td>
+                                    <td>{{ caixinha.meta }}</td>
+                                    <td>{{ caixinha.guardado }}</td>
+                                    <td><a href="{% url 'financeiro:editar_caixinha' caixinha.id %}" class="botao">Editar</a></td>
+                                    <td><a href="{% url 'financeiro:excluir_caixinha' caixinha.id %}" class="botao">Excluir</a></td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <div class="botoes_tabelas">
+                <a href="{% url 'financeiro:cadastrar_caixinha' %}" class="botao">Cadastrar Caixinha</a>
+            </div>
+            <div class="botoes">
+                <a href="{% url 'financeiro:inicio' %}" class="botao">Inicio</a>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <a href="https://github.com/Hkawzz/" class="github" target="_blank">GitHub</a>
+    </footer>
+</body>
+</html>

@@ -168,13 +168,18 @@ def excluir_cartao(request, id):
 
     return redirect('financeiro:cartao')
 
-def cadastrar_caixinhas(request):
+def caixinhas(request):
+    caixinhas = Caixinhas.objects.all()
+
+    return render(request, "caixinhas/index.html", {'caixinhas': caixinhas})
+
+def cadastrar_caixinha(request):
     if request.method == 'POST':
         form = CaixinhasForm(request.POST)
         if form.is_valid():
             form.save()
 
-            return redirect('financeiro:inicio')
+            return redirect('financeiro:caixinhas')
         
     else:
         form = CaixinhasForm()
@@ -188,7 +193,7 @@ def editar_caixinha(request, id):
         if form.is_valid():
             form.save()
 
-            return redirect('financeiro:inicio')
+            return redirect('financeiro:caixinhas')
         
     else:
         form = CaixinhasForm(instance=form)
@@ -199,7 +204,7 @@ def excluir_caixinha(request, id):
     form = get_object_or_404(Caixinhas, id=id)
     form.delete()
 
-    return redirect('financeiro:inicio')
+    return redirect('financeiro:caixinhas')
 
 def cadastrar_divida(request):
     if request.method == 'POST':
