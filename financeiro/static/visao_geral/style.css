@@ -14,78 +14,34 @@ main {
     padding-bottom: 5rem;
 }
 
-header  h1 {
+header {
+    display: flex;
+    padding: 1rem;
+    justify-content: center;
+    background-color: #4d93d9;
+}
+
+a {
+    text-decoration: none;
+    padding: 2em;
+    font-size: 20px;
+    color: #000000;
+    font-family: "Roboto", sans-serif;
+}
+
+h1 {
     font-family: "Arimo", sans-serif;
     text-align: center;
     margin: 1rem;
     font-size: 50px;
 }
 
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    padding-top: 5rem;
-    gap: 2rem;
-}
-
-.titulo_tabela {
-    text-align: center;
-    padding: 0.3rem;
-    font-family: "Arimo", sans-serif;
-}
-
-.gastos,
-.entradas,
-.fixos,
-.cartao,
-.caixinhas,
-.dividas {
-    flex: 0 0 45%;
-    background-color: #4d93d9;
-    border-radius: 1rem;
-    padding: 1rem;
-}
-
-.botoes_tabelas {
-    display: flex;
-    justify-content: center;
-    gap: 5rem;
-    margin: 0.5rem;
-}
-
-.botao {
-    color: #000000;
-    text-decoration: none;
-    background-color: #60d2ff;
-    border-radius: 1rem;
-    padding: 0.3rem;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.tabela_gastos,
-.tabela_entradas,
-.tabela_fixos,
-.tabela_cartao,
-.tabela_caixinhas,
-.tabela_dividas {
-    margin: 0 auto;
-    border-collapse: collapse;
-}
-
-
-th, td {
-    padding: 0.5rem;
-    text-align: center;
-    font-family: "Noto Sans", sans-serif;
-}
-
 footer {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
-    padding: 1rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    height: 2.8rem;
     width: 100%;
     background-color: #60d2ff;
     position: fixed;
@@ -98,6 +54,6 @@ footer {
     justify-content: center;
     text-decoration: none;
     color: #000000;
-    font-size: 19px;
+    font-size: 15px;
     font-family: "Montserrat", sans-serif;
 }
