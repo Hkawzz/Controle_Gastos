@@ -130,13 +130,18 @@ def excluir_fixos(request, id):
 
     return redirect('financeiro:fixos')
 
+def cartao(request):
+    cartao = Cartao.objects.all()
+
+    return render(request, "cartao/index.html", {'cartao': cartao})
+
 def cadastrar_cartao(request):
     if request.method == 'POST':
         form = CartaoForm(request.POST)
         if form.is_valid():
             form.save()
 
-            return redirect('financeiro:inicio')
+            return redirect('financeiro:cartao')
         
     else:
         form = CartaoForm()
@@ -150,7 +155,7 @@ def editar_cartao(request, id):
         if form.is_valid():
             form.save()
 
-            return redirect('financeiro:inicio')
+            return redirect('financeiro:cartao')
         
     else:
         form = CartaoForm(instance=form)
@@ -161,7 +166,7 @@ def excluir_cartao(request, id):
     form = get_object_or_404(Cartao, id=id)
     form.delete()
 
-    return redirect('financeiro:inicio')
+    return redirect('financeiro:cartao')
 
 def cadastrar_caixinhas(request):
     if request.method == 'POST':

@@ -16,36 +16,7 @@
             <a href="{% url 'financeiro:gastos' %}">Gastos</a>
             <a href="{% url 'financeiro:entradas' %}">Entradas</a>
             <a href="{% url 'financeiro:fixos' %}">Fixos</a>
-            <section class="cartao">
-                <h2 class="titulo_tabela">Cartão de Crédito</h1>
-                <table border="1" class="tabela_cartao">
-                    <thead>
-                        <th>Nome</th>
-                        <th>Data</th>
-                        <th>Parcela</th>
-                        <th>Categoria</th>
-                        <th>Valor</th>
-                        <th>Editar</th>
-                        <th>Excluir</th>
-                    </thead>
-                        <tbody>
-                            {% for conta in cartao %}
-                                <tr>
-                                    <td>{{ conta.nome }}</td>
-                                    <td>{{ conta.data }}</td>
-                                    <td>{{ conta.parcela }}</td>
-                                    <td>{{ conta.categoria }}</td>
-                                    <td>{{ conta.valor }}</td>
-                                    <td><a href="{% url 'financeiro:editar_cartao' conta.id %}" class="botao">Editar</a></td>
-                                    <td><a href="{% url 'financeiro:excluir_cartao' conta.id %}" class="botao">Excluir</a></td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                </table>
-                <div class="botoes_tabelas">
-                    <a href="{% url 'financeiro:cadastrar_cartao' %}" class="botao">Cadastrar Cartão</a>
-                </div>
-            </section>
+            <a href="{% url 'financeiro:cartao' %}">Cartão</a>
             <section class="caixinhas">
                 <h2 class="titulo_tabela">Caixinhas</h1>
                 <table border="1" class="tabela_caixinhas">
