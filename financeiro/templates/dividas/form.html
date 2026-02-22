@@ -12,7 +12,7 @@
         <h1>Dívida</h1>
     </header>
     <main>
-        <div class="div">
+        <div class="divid">
             <form method="post" class="formulario">
                 {% csrf_token %}
                 {{ form.as_p }}
@@ -20,6 +20,7 @@
             </form>
         </div>
         <div class="botoes">
+            <a href="{% url 'financeiro:dividas' %}" class="botao">Voltar</a>
             <a href="{% url 'financeiro:inicio' %}" class="botao">Inicio</a>
         </div>
     </main>
