@@ -12,7 +12,7 @@
         <h1>Gastos</h1>
     </header>
     <main>
-        <div class="od">
+        <div class="gas">
             <form method="post" class="formulario">
                 {% csrf_token %}
                 <div class="info_formulario">
@@ -22,9 +22,9 @@
             </form>
         </div>
         <div class="botoes">
+            <a href="{% url 'financeiro:gastos' %}" class="botao">Voltar</a>
             <a href="{% url 'financeiro:inicio' %}" class="botao">Inicio</a>
         </div>
-    </main>
     <footer>
         <a href="https://github.com/Hkawzz/" class="github" target="_blank">GitHub</a>
     </footer>

@@ -13,36 +13,7 @@
     </header>
     <main>
         <div class="container">
-            <section class="gastos">
-                <h2 class="titulo_tabela">Gastos do Mês</h1>
-                <table border="1" class="tabela_gastos">
-                    <thead>
-                        <th>Nome</th>
-                        <th>Registro</th>
-                        <th>Tipo</th>
-                        <th>Categoria</th>
-                        <th>Valor</th>
-                        <th>Editar</th>
-                        <th>Remover</th>
-                    </thead>
-                    <tbody>
-                        {% for gasto in gastos %}
-                            <tr>
-                                <td>{{ gasto.nome }}</td>
-                                <td>{{ gasto.registro }}</td>
-                                <td>{{ gasto.tipo }}</td>
-                                <td>{{ gasto.categoria }}</td>
-                                <td>{{ gasto.valor }}</td>
-                                <td><a href="{% url 'financeiro:editar_gastos' gasto.id %}" class="botao">Editar</a></td>
-                                <td><a href="{% url 'financeiro:excluir_gastos' gasto.id %}" class="botao">Excluir</a></td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-                <div class="botoes_tabelas">
-                    <a href="{% url 'financeiro:cadastrar_gastos' %}" class="botao">Cadastrar Gastos</a>
-                </div>
-            </section>
+            <a href="{% url 'financeiro:gastos' %}">Gastos</a>
             <a href="{% url 'financeiro:entradas' %}">Entradas</a>
             <section class="fixos">
                 <h2 class="titulo_tabela">Fixos</h1>

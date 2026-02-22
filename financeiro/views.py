@@ -54,37 +54,42 @@ def excluir_entradas(request, id):
 
     return redirect('financeiro:entradas')
 
-def cadastrar_gastos(request):
+def gastos(request):
+    gastos = Gastos.objects.all()
+
+    return render(request, "gastos/index.html", {'gastos': gastos})
+
+def cadastrar_gasto(request):
     if request.method == 'POST':
         form = GastosForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('financeiro:inicio')
+            return redirect('financeiro:gastos')
         
     else:
         form = GastosForm()
     
     return render(request, "gastos/form.html", {'form': form})
 
-def editar_gastos(request, id):
+def editar_gasto(request, id):
     gasto = get_object_or_404(Gastos, id=id)
     if request.method == 'POST':
         form = GastosForm(request.POST, instance=gasto)
         if form.is_valid():
             form.save()
 
-            return redirect('financeiro:inicio')
+            return redirect('financeiro:gastos')
 
     else:
         form = GastosForm(instance=gasto)
 
     return render(request, "gastos/form.html", {'form': form})
 
-def excluir_gastos(request, id):
+def excluir_gasto(request, id):
     gasto = get_object_or_404(Gastos, id=id)
     gasto.delete()
 
-    return redirect('financeiro:inicio')
+    return redirect('financeiro:gastos')
 
 def cadastrar_fixos(request):
     if request.method == 'POST':
