@@ -21,6 +21,7 @@
                             <th>Valor p/ Parcela</th>
                             <th>Total de Parcelas</th>
                             <th>Data</th>
+                            <th>Total</th>
                             <th>Editar</th>
                             <th>Remover</th>
                         </thead>
@@ -31,6 +32,7 @@
                                     <td>{{ divida.valor_parcela }}</td>
                                     <td>{{ divida.total_parcela }}</td>
                                     <td>{{ divida.data }}</td>
+                                    <td>{{ divida.total }}</td>
                                     <td><a href="{% url 'financeiro:editar_divida' divida.id %}" class="botao">Editar</a></td>
                                     <td><a href="{% url 'financeiro:excluir_divida' divida.id %}" class="botao">Excluir</a></td>
                                 </tr>

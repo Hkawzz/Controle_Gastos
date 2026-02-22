@@ -21,6 +21,7 @@
                             <th>Data</th>
                             <th>Parcela</th>
                             <th>Valor</th>
+                            <th>Categoria</th>
                             <th>Editar</th>
                             <th>Remover</th>
                         </thead>
@@ -31,6 +32,7 @@
                                     <td>{{ item.data }}</td>
                                     <td>{{ item.parcela }}</td>
                                     <td>{{ item.valor }}</td>
+                                    <td>{{ item.categoria }}</td>
                                     <td><a href="{% url 'financeiro:editar_cartao' item.id %}" class="botao">Editar</a></td>
                                     <td><a href="{% url 'financeiro:excluir_cartao' item.id %}" class="botao">Excluir</a></td>
                                 </tr>

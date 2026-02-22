@@ -28,7 +28,7 @@ class FixosForm(forms.ModelForm):
         model = Fixos
         fields = ['nome', 'data', 'tipo', 'categoria', 'valor']
         widgets = {
-            'nome': forms.TextInput(attrs={'class': 'input_nome'}),
+            'nome': forms.TextInput(attrs={'type': 'date', 'class': 'input_nome'}),
             'data': forms.DateInput(attrs={'class': 'input_data'}),
             'tipo': forms.Select(attrs={'class': 'input_tipo'}),
             'categoria': forms.TextInput(attrs={'class': 'input_categoria'}),
@@ -41,7 +41,7 @@ class CartaoForm(forms.ModelForm):
         fields = ['nome', 'data', 'parcela', 'categoria', 'valor']
         widgets = {
             'nome': forms.TextInput(attrs={'class': 'input_nome'}),
-            'data': forms.DateInput(attrs={'class': 'input_data'}),
+            'data': forms.DateInput(attrs={'type': 'date', 'class': 'input_data'}),
             'parcela': forms.NumberInput(attrs={'class': 'input_parcela'}),
             'categoria': forms.TextInput(attrs={'class': 'input_categoria'}),
             'valor': forms.NumberInput(attrs={'class': 'input_valor'}),
@@ -65,5 +65,5 @@ class DividasForm(forms.ModelForm):
             'nome': forms.TextInput(attrs={'class': 'input_nome'}),
             'valor_parcela': forms.NumberInput(attrs={'class': 'input_valor_parcela'}),
             'total_parcela': forms.NumberInput(attrs={'class': 'input_total_parcela'}),
-            'data': forms.DateInput(attrs={'class': 'input_data'})
+            'data': forms.DateInput(attrs={'type': 'date', 'class': 'input_data'})
         }

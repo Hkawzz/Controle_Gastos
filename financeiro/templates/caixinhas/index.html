@@ -20,6 +20,8 @@
                             <th>Objetivo</th>
                             <th>Meta</th>
                             <th>Guardado</th>
+                            <th>Falta</th>
+                            <th>Processo %</th>
                             <th>Editar</th>
                             <th>Remover</th>
                         </thead>
@@ -29,6 +31,8 @@
                                     <td>{{ caixinha.objetivo }}</td>
                                     <td>{{ caixinha.meta }}</td>
                                     <td>{{ caixinha.guardado }}</td>
+                                    <td>{{ caixinha.falta }}</td>
+                                    <td>{{ caixinha.processo }}</td>
                                     <td><a href="{% url 'financeiro:editar_caixinha' caixinha.id %}" class="botao">Editar</a></td>
                                     <td><a href="{% url 'financeiro:excluir_caixinha' caixinha.id %}" class="botao">Excluir</a></td>
                                 </tr>
