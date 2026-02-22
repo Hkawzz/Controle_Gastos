@@ -13,6 +13,7 @@ urlpatterns = [
     path('cadastrar_gasto/', views.cadastrar_gasto, name='cadastrar_gasto'),
     path('editar_gasto/<int:id>', views.editar_gasto, name='editar_gasto'),
     path('excluir_gasto/<int:id>', views.excluir_gasto, name='excluir_gasto'),
+    path('fixos', views.fixos, name='fixos'),
     path('cadastrar_fixos/', views.cadastrar_fixos, name='cadastrar_fixos'),
     path('editar_fixos/<int:id>', views.editar_fixos, name='editar_fixos'),
     path('excluir_fixos/<int:id>', views.excluir_fixos, name='excluir_fixos'),

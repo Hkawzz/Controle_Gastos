@@ -15,36 +15,7 @@
         <div class="container">
             <a href="{% url 'financeiro:gastos' %}">Gastos</a>
             <a href="{% url 'financeiro:entradas' %}">Entradas</a>
-            <section class="fixos">
-                <h2 class="titulo_tabela">Fixos</h1>
-                <table border="1" class="tabela_fixos">
-                    <thead>
-                        <th>Nome</th>
-                        <th>Data</th>
-                        <th>Tipo</th>
-                        <th>Categoria</th>
-                        <th>Valor</th>
-                        <th>Editar</th>
-                        <Th>Excluir</Th>
-                    </thead>
-                    <tbody>
-                        {% for fixo in fixos %}
-                            <tr>
-                                <td>{{ fixo.nome }}</td>
-                                <td>{{ fixo.data }}</td>
-                                <td>{{ fixo.tipo }}</td>
-                                <td>{{ fixo.categoria }}</td>
-                                <td>{{ fixo.valor }}</td>
-                                <td><a href="{% url 'financeiro:editar_fixos' fixo.id %}" class="botao">Editar</a></td>
-                                <td><a href="{% url 'financeiro:excluir_fixos' fixo.id %}" class="botao">Excluir</a></td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-                <div class="botoes_tabelas">
-                    <a href="{% url 'financeiro:cadastrar_fixos' %}" class="botao">Cadastrar Fixos</a>
-                </div>
-            </section>
+            <a href="{% url 'financeiro:fixos' %}">Fixos</a>
             <section class="cartao">
                 <h2 class="titulo_tabela">Cartão de Crédito</h1>
                 <table border="1" class="tabela_cartao">

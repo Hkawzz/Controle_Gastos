@@ -105,6 +105,12 @@ th, td {
     background-color: #d0f2ff;
 }
 
+.botoes {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
 footer {
     display: flex;
     justify-content: center;

@@ -91,13 +91,19 @@ def excluir_gasto(request, id):
 
     return redirect('financeiro:gastos')
 
+def fixos(request):
+    fixos = Fixos.objects.all()
+
+    return render(request, "fixos/index.html", {'fixos': fixos})
+
+
 def cadastrar_fixos(request):
     if request.method == 'POST':
         form = FixosForm(request.POST)
         if form.is_valid():
             form.save()
 
-            return redirect('financeiro:inicio')
+            return redirect('financeiro:fixos')
         
     else:
         form = FixosForm()
@@ -111,7 +117,7 @@ def editar_fixos(request, id):
         if form.is_valid():
             form.save()
 
-            return redirect('financeiro:inicio')
+            return redirect('financeiro:fixos')
         
     else:
         form = FixosForm(instance=fixo)
@@ -122,7 +128,7 @@ def excluir_fixos(request, id):
     fixo =get_object_or_404(Fixos, id=id)
     fixo.delete()
 
-    return redirect('financeiro:inicio')
+    return redirect('financeiro:fixos')
 
 def cadastrar_cartao(request):
     if request.method == 'POST':
