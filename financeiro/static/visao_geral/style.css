@@ -22,20 +22,23 @@ main {
     padding-bottom: 5rem;
 }
 
-.saldo {
+.dados {
     display: flex;
-    background-color: #4d93d9;
-    height: 3rem;
-    width: 10rem;
-    border-radius: 1rem;
-    align-items: center;
     justify-content: center;
-    text-align: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
-p {
-    text-align: center;
-    font-family: "Rubik", sans-serif;
+.dados p {
+    background-color: #4d93d9;
+    min-width: 10rem;
+    padding: 0 1rem;
+    height: 3rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(0, 0, 0);
 }
 
 a {
