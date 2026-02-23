@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'financeiro',
     'gastos',
     'entradas',
+    'fixos',
+    'cartao',
 ]
 
 MIDDLEWARE = [
