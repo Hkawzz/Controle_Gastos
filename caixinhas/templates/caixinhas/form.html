@@ -2,28 +2,27 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <link rel="stylesheet" href="{% static 'dividas/style.css' %}">
+    <link rel="stylesheet" href="{% static 'caixinhas/style.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dívida</title>
+    <title>Caixinha</title>
 </head>
 <body>
     <header>
-        <h1>Dívida</h1>
+        <h1>Caixinha</h1>
     </header>
     <main>
-        <div class="divid">
+        <div class="caix">
             <form method="post" class="formulario">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <button type="submit" class="salvar">Salvar</button>
             </form>
         </div>
-        <div class="botoes">
-            <a href="{% url 'financeiro:dividas' %}" class="botao">Voltar</a>
+         <div class="botoes">
+            <a href="{% url 'caixinhas:caixinhas' %}" class="botao">Voltar</a>
             <a href="{% url 'financeiro:inicio' %}" class="botao">Inicio</a>
         </div>
-    </main>
     <footer>
         <a href="https://github.com/Hkawzz/" class="github" target="_blank">GitHub</a>
     </footer>

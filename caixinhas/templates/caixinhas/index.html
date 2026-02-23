@@ -33,8 +33,8 @@
                                     <td>{{ caixinha.guardado }}</td>
                                     <td>{{ caixinha.falta }}</td>
                                     <td>{{ caixinha.processo }}</td>
-                                    <td><a href="{% url 'financeiro:editar_caixinha' caixinha.id %}" class="botao">Editar</a></td>
-                                    <td><a href="{% url 'financeiro:excluir_caixinha' caixinha.id %}" class="botao">Excluir</a></td>
+                                    <td><a href="{% url 'caixinhas:editar_caixinha' caixinha.id %}" class="botao">Editar</a></td>
+                                    <td><a href="{% url 'caixinhas:excluir_caixinha' caixinha.id %}" class="botao">Excluir</a></td>
                                 </tr>
                             {% endfor %}
                         </tbody>
@@ -42,7 +42,7 @@
                 </div>
             </section>
             <div class="botoes_tabelas">
-                <a href="{% url 'financeiro:cadastrar_caixinha' %}" class="botao">Cadastrar Caixinha</a>
+                <a href="{% url 'caixinhas:cadastrar_caixinha' %}" class="botao">Cadastrar Caixinha</a>
             </div>
             <div class="botoes">
                 <a href="{% url 'financeiro:inicio' %}" class="botao">Inicio</a>
