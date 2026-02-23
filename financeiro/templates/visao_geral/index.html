@@ -14,18 +14,117 @@
             <a href="{% url 'entradas:entradas' %}">Entradas</a>
             <a href="{% url 'fixos:fixos' %}">Fixos</a>
             <a href="{% url 'cartao:cartao' %}">Cartão</a>
-            <a href="{% url 'caixinhas:caixinhas' %}">Caixinhas</a>
             <a href="{% url 'dividas:dividas' %}">Dívidas</a>
+            <a href="{% url 'caixinhas:caixinhas' %}">Caixinhas</a>
         </div>
     </header>
     <main>
         <h1>Fevereiro</h1>
-        <div class="dados">
+        <h2 id="subtitulo">Visão Geral</h2>
+        <section class="dados">
             <p>Saldo Atual: {{ saldo_total }}</p>
             <p>Total Recebido: {{ total_entradas }}</p>
             <p>Total de Gastos do Mês: {{ total_gastos }}</p>
             <p>Total em Caixinhas: {{ total_caixinhas }}</p>
-        </div>
+        </section>
+        <section class="tabela1">
+            <div class="tabela2">
+                <h2>Fixos</h2>
+                <table border="1" class="tabela3">
+                    <thead>
+                        <th>Nome</th>
+                        <th>Data</th>
+                        <th>Categoria</th>
+                        <th>Valor</th>
+                    </thead>
+                    <tbody>
+                        {% for fixo in fixos %}
+                            <tr>
+                                <td>{{ fixo.nome }}</td>
+                                <td>{{ fixo.data }}</td>
+                                <td>{{ fixo.categoria }}</td>
+                                <td>{{ fixo.valor }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="tabela1">
+            <div class="tabela2">
+                <h2>Cartão</h2>
+                <table border="1" class="tabela3">
+                    <thead>
+                        <th>Nome</th>
+                        <th>Data</th>
+                        <th>Parcela</th>
+                        <th>Valor</th>
+                        <th>Categoria</th>
+                     </thead>
+                    <tbody>
+                        {% for item in cartao %}
+                            <tr>
+                                <td>{{ item.nome }}</td>
+                                <td>{{ item.data }}</td>
+                                <td>{{ item.parcela }}</td>
+                                <td>{{ item.valor }}</td>
+                                <td>{{ item.categoria }}</td>
+                             </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="tabela1">
+            <div class="tabela2">
+                <h2>Dívidas</h2>
+                <table border="1" class="tabela3">
+                    <thead>
+                        <th>Nome</th>
+                        <th>Valor p/ Parcela</th>
+                        <th>Total de Parcelas</th>
+                        <th>Data</th>
+                        <th>Total</th>
+                    </thead>
+                    <tbody>
+                        {% for divida in dividas %}
+                            <tr>
+                                <td>{{ divida.nome }}</td>
+                                <td>{{ divida.valor_parcela }}</td>
+                                <td>{{ divida.total_parcela }}</td>
+                                <td>{{ divida.data }}</td>
+                                <td>{{ divida.total }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="tabela1">
+            <div class="tabela2">
+                <h2>Caixinhas</h2>
+                <table border="1" class="tabela3">
+                    <thead>
+                        <th>Objetivo</th>
+                        <th>Meta</th>
+                        <th>Guardado</th>
+                        <th>Falta</th>
+                        <th>Processo %</th>
+                    </thead>
+                    <tbody>
+                        {% for caixinha in caixinhas %}
+                            <tr>
+                                <td>{{ caixinha.objetivo }}</td>
+                                <td>{{ caixinha.meta }}</td>
+                                <td>{{ caixinha.guardado }}</td>
+                                <td>{{ caixinha.falta }}</td>
+                                <td>{{ caixinha.processo }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </section>
     </main>
     <footer>
         <a href="https://github.com/Hkawzz/" class="github" target="_blank">GitHub</a>

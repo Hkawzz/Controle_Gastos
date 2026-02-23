@@ -9,6 +9,6 @@ class GastosForm(forms.ModelForm):
             'nome': forms.TextInput(attrs={'class': 'input_nome'}),
             'registro': forms.DateTimeInput(attrs={'type': 'datetime-local', 'class': 'input_tipo'}),
             'tipo': forms.Select(attrs={'class': 'input_tipo'}),
-            'categoria': forms.TextInput(attrs={'class': 'input_categoria'}),
+            'categoria': forms.Select(attrs={'class': 'input_categoria'}),
             'valor': forms.NumberInput(attrs={'class': 'input_valor'}),
         }

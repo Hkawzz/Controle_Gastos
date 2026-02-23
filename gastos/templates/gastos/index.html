@@ -9,7 +9,7 @@
 </head>
 <body>
     <header>
-        <h1>Entradas do Mês</h1>
+        <h1>Gastos do Mês</h1>
     </header>
     <main>
         <div class="info">
@@ -19,7 +19,6 @@
                         <thead>
                             <th>Nome</th>
                             <th>Registro</th>
-                            <th>Tipo</th>
                             <th>Categoria</th>
                             <th>Valor</th>
                             <th>Editar</th>
@@ -30,7 +29,6 @@
                                 <tr>
                                     <td>{{ gasto.nome }}</td>
                                     <td>{{ gasto.registro }}</td>
-                                    <td>{{ gasto.tipo }}</td>
                                     <td>{{ gasto.categoria }}</td>
                                     <td>{{ gasto.valor }}</td>
                                     <td><a href="{% url 'gastos:editar_gasto' gasto.id %}" class="botao">Editar</a></td>
@@ -42,7 +40,7 @@
                 </div>
             </section>
             <div class="botoes_tabelas">
-                <a href="{% url 'gastos:cadastrar_gasto' %}" class="botao">Cadastrar Entrada</a>
+                <a href="{% url 'gastos:cadastrar_gasto' %}" class="botao">Cadastrar Gasto</a>
             </div>
             <div class="botoes">
                 <a href="{% url 'financeiro:inicio' %}" class="botao">Inicio</a>
