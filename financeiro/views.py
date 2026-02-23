@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Entradas, Fixos, Cartao, Caixinhas, Dividas
-from .forms import EntradasForm, FixosForm, CartaoForm, CaixinhasForm, DividasForm
+from .models import Fixos, Cartao, Caixinhas, Dividas
+from .forms import FixosForm, CartaoForm, CaixinhasForm, DividasForm
 
 def visao_geral(request):
     fixos = Fixos.objects.all()
@@ -9,48 +9,10 @@ def visao_geral(request):
     dividas = Dividas.objects.all()
 
     return render(request, "visao_geral/index.html", {
-        'entradas': entradas,
         'fixos': fixos,
         'cartao': cartao,
         'caixinhas': caixinhas,
         'dividas': dividas})
-
-def entradas(request):
-    entradas = Entradas.objects.all()
-
-    return render(request, "entradas/index.html", {'entradas': entradas})
-
-def cadastrar_entradas(request):
-    if request.method == 'POST':
-        form = EntradasForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('financeiro:entradas')
-        
-    else:
-        form = EntradasForm()
-    
-    return render(request, "entradas/form.html", {'form': form})
-
-def editar_entradas(request, id):
-    entrada = get_object_or_404(Entradas, id=id)
-    if request.method == 'POST':
-        form = EntradasForm(request.POST, instance=entrada)
-        if form.is_valid():
-            form.save()
-
-            return redirect('financeiro:entradas')
-
-    else:
-        form = EntradasForm(instance=entrada)
-
-    return render(request, "entradas/form.html", {'form': form})
-
-def excluir_entradas(request, id):
-    entradas = get_object_or_404(Entradas, id=id)
-    entradas.delete()
-
-    return redirect('financeiro:entradas')
 
 def fixos(request):
     fixos = Fixos.objects.all()
