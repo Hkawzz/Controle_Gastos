@@ -12,7 +12,7 @@ class Fixos(models.Model):
 
     nome = models.CharField(max_length=100)
     data = models.DateField()
-    categoria = models.CharField(choices=categoria_escolha, default='Assinatura', max_length=20)
+    categoria = models.CharField(choices=categoria_escolha, default='Assinaturas', max_length=20)
     valor = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
