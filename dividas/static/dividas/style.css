@@ -82,9 +82,9 @@ th, td {
 }
 
 .input_nome,
-.input_valor_parcela,
-.input_total_parcela,
-.input_data {
+.input_data,
+.input_valor,
+.input_categoria {
     display: flex;
     padding: 0.5rem;
     margin-bottom: 12px;
